@@ -1,5 +1,5 @@
 import { Play, Pause } from 'lucide-react';
-import { useState,useRef } from 'react';
+import { useState, useRef } from 'react';
 
 const CustomVideoPlayer = ({ src, poster, className = "" }) => {
   const videoRef = useRef(null);
@@ -65,12 +65,12 @@ const CustomVideoPlayer = ({ src, poster, className = "" }) => {
         <div className="absolute inset-0 flex items-center justify-center bg-black/20 rounded-lg transition-opacity duration-300">
           <button
             onClick={togglePlay}
-            className="bg-white/90 hover:bg-white text-black rounded-full p-4 shadow-lg transition-all duration-200 hover:scale-110"
+            className="bg-white/90 hover:bg-white text-black rounded-full p-2 sm:p-3 md:p-4 shadow-lg transition-all duration-200 hover:scale-110"
           >
             {isPlaying ? (
-              <Pause size={100} fill='#000' />
+              <Pause className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" fill='#000' />
             ) : (
-              <Play size={100} fill='#000' className="ml-1" />
+              <Play className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 ml-1" fill='#000' />
             )}
           </button>
         </div>
@@ -78,4 +78,5 @@ const CustomVideoPlayer = ({ src, poster, className = "" }) => {
     </div>
   );
 };
+
 export default CustomVideoPlayer

@@ -70,15 +70,25 @@ const TokenomicsSection = () => {
   );
 
   const renderPresaleMechanics = (section) => (
-    <div className="rounded-xl border-[1px] p-[33px] bg-black/60 border-[#EAB30833] max-w-[600px] w-full">
-      <h2 className="text-[30px] font-bold text-[#EAB308]">{section.title}</h2>
+    <div className="rounded-xl border-[1px] p-[33px] bg-black/60 border-[#EAB30833] w-full max-w-[600px] lg:h-[610px]
+                    max-xl:p-[28px] max-lg:p-[24px] max-md:p-[20px] max-sm:p-[16px]">
+      <h2 className="text-[30px] font-bold text-[#EAB308] text-center sm:text-left
+                     max-xl:text-[28px] max-lg:text-[26px] max-md:text-[24px] max-sm:text-[22px]">
+        {section.title}
+      </h2>
       {section.items.map((item, index) => (
-        <div key={index} className="flex flex-col pt-[24px]">
-          <h3 className="font-bold text-[18px]">
-            <span className="pr-[16px] pl-[10px] text-[#EAB308]">{item.number}</span>
+        <div key={index} className="flex flex-col pt-[24px] max-lg:pt-[20px] max-md:pt-[16px] max-sm:pt-[14px]">
+          <h3 className="font-bold text-[18px] text-center sm:text-left
+                         max-xl:text-[17px] max-lg:text-[16px] max-md:text-[15px] max-sm:text-[14px]">
+            <span className="pr-[16px] pl-[10px] text-[#EAB308] 
+                           max-md:pr-[12px] max-md:pl-[8px] max-sm:pr-[10px] max-sm:pl-[6px]">
+              {item.number}
+            </span>
             {item.title}
           </h3>
-          <p className="pl-[35px] text-[#D1D5DB] text-[16px] pt-[5px]">
+          <p className="pl-[35px] text-[#D1D5DB] text-[16px] pt-[5px] text-center sm:text-left
+                        max-xl:text-[15px] max-lg:text-[14px] max-md:text-[13px] max-sm:text-[12px]
+                        max-md:pl-[28px] max-sm:pl-[24px] max-sm:pt-[3px]">
             {item.description}
           </p>
         </div>
@@ -87,35 +97,60 @@ const TokenomicsSection = () => {
   );
 
   const renderTokenDistribution = (section) => (
-    <div className="rounded-xl border-[1px] p-[33px] bg-black/60 border-[#EAB30833] max-w-[600px] w-full">
-      <h2 className="text-[30px] font-bold text-[#EAB308]">{section.title}</h2>
+    <div className="rounded-xl border-[1px] p-[33px] bg-black/60 border-[#EAB30833] w-full max-w-[600px] lg:h-[610px]
+                    max-xl:p-[28px] max-lg:p-[24px] max-md:p-[20px] max-sm:p-[16px]">
+      <h2 className="text-[30px] font-bold text-[#EAB308] text-center sm:text-left
+                     max-xl:text-[28px] max-lg:text-[26px] max-md:text-[24px] max-sm:text-[22px]">
+        {section.title}
+      </h2>
       {section.items.map((item, index) => (
-        <div key={index} className="pt-[24px]">
-          <div className="flex justify-between pb-[10px]">
-            <p className="text-[#D1D5DB] text-[14px]">{item.label}</p>
-            <p className="text-[#FACC15] font-semibold text-[16px]">{item.percentage}%</p>
+        <div key={index} className="pt-[24px] max-lg:pt-[20px] max-md:pt-[16px] max-sm:pt-[14px]">
+          <div className="flex justify-between pb-[10px] max-sm:pb-[8px]">
+            <p className="text-[#D1D5DB] text-[14px] 
+                          max-xl:text-[13px] max-lg:text-[12px] max-sm:text-[11px]">
+              {item.label}
+            </p>
+            <p className="text-[#FACC15] font-semibold text-[16px]
+                          max-xl:text-[15px] max-lg:text-[14px] max-md:text-[13px] max-sm:text-[12px]">
+              {item.percentage}%
+            </p>
           </div>
           <ProgressBar percentage={item.percentage} />
         </div>
       ))}
-      <div className='bg-[#EAB30833] p-[16px] rounded-xl border-[1px] border-[#EAB3084D] mt-[32px]'>
-       <p className='text-[14px] text-[#D1D5DB]'><span className='font-bold pr-[3px] text-[14px] text-[#FACC15]'>Note:</span>Token distribution will commence after the infrastructure development is complete. All presale tokens are securely held in the CBF Trust & Bank until official distribution.</p>
+      <div className='bg-[#EAB30833] p-[16px] rounded-xl border-[1px] border-[#EAB3084D] mt-[32px]
+                      max-lg:p-[14px] max-md:p-[12px] max-sm:p-[10px] max-lg:mt-[28px] max-md:mt-[24px] max-sm:mt-[20px]'>
+       <p className='text-[14px] text-[#D1D5DB] text-center sm:text-left
+                     max-xl:text-[13px] max-lg:text-[12px] max-sm:text-[11px]'>
+         <span className='font-bold pr-[3px] text-[14px] text-[#FACC15]
+                          max-xl:text-[13px] max-lg:text-[12px] max-sm:text-[11px]'>
+           Note:
+         </span>
+         Token distribution will commence after the infrastructure development is complete. All presale tokens are securely held in the CBF Trust & Bank until official distribution.
+       </p>
       </div>
     </div>
   );
 
   return (
-    <div className="montserrat">
-      <div className="text-center pt-[54px]">
-        <h2 className="text-[30px] pb-[20px] font-bold text-[#EAB308]">
+    <div className="montserrat px-4 sm:px-6 lg:px-8">
+      <div className="text-center pt-[54px] max-lg:pt-[48px] max-md:pt-[40px] max-sm:pt-[32px]">
+        <h2 className="text-[30px] pb-[20px] font-bold text-[#EAB308]
+                       max-xl:text-[28px] max-lg:text-[26px] max-md:text-[24px] max-sm:text-[22px]
+                       max-lg:pb-[18px] max-md:pb-[16px] max-sm:pb-[14px]">
           {tokenomicsData.header.title}
         </h2>
-        <p className="text-[18px] pb-[64px] text-[#D1D5DB]">
+        <p className="text-[18px] pb-[64px] text-[#D1D5DB] max-w-4xl mx-auto
+                      max-xl:text-[17px] max-lg:text-[16px] max-md:text-[15px] max-sm:text-[14px]
+                      max-lg:pb-[56px] max-md:pb-[48px] max-sm:pb-[40px]">
           {tokenomicsData.header.subtitle}
         </p>
       </div>
       
-      <div className="flex justify-center p-[30px] gap-[48px]">
+      <div className="flex flex-col items-center justify-center items-center lg:flex-row justify-center lg:items-stretch
+                      p-[30px] gap-[48px] max-w-7xl mx-auto
+                      max-xl:p-[24px] max-lg:p-[20px] max-md:p-[16px] max-sm:p-[12px]
+                      max-lg:gap-[40px] max-md:gap-[32px] max-sm:gap-[24px]">
         {renderPresaleMechanics(tokenomicsData.sections[0])}
         {renderTokenDistribution(tokenomicsData.sections[1])}
       </div>

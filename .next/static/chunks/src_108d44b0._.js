@@ -1200,6 +1200,7 @@ var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_
 {
 __turbopack_context__.s({
     "Bank": (()=>Bank),
+    "CircleEmpty": (()=>CircleEmpty),
     "Coins": (()=>Coins),
     "GraphUp": (()=>GraphUp),
     "HandShake": (()=>HandShake),
@@ -1917,7 +1918,85 @@ const Processing = ()=>{
     }, this);
 };
 _c7 = Processing;
-var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7;
+const CircleEmpty = ()=>{
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+        width: "16",
+        height: "17",
+        viewBox: "0 0 16 17",
+        fill: "none",
+        xmlns: "http://www.w3.org/2000/svg",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                clipPath: "url(#clip0_235_347)",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                    clipPath: "url(#clip1_235_347)",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: "M14.5 8.5459C14.5 6.82199 13.8152 5.16869 12.5962 3.9497C11.3772 2.73072 9.72391 2.0459 8 2.0459C6.27609 2.0459 4.62279 2.73072 3.40381 3.9497C2.18482 5.16869 1.5 6.82199 1.5 8.5459C1.5 10.2698 2.18482 11.9231 3.40381 13.1421C4.62279 14.3611 6.27609 15.0459 8 15.0459C9.72391 15.0459 11.3772 14.3611 12.5962 13.1421C13.8152 11.9231 14.5 10.2698 14.5 8.5459ZM0 8.5459C0 6.42417 0.842855 4.38934 2.34315 2.88904C3.84344 1.38875 5.87827 0.545898 8 0.545898C10.1217 0.545898 12.1566 1.38875 13.6569 2.88904C15.1571 4.38934 16 6.42417 16 8.5459C16 10.6676 15.1571 12.7025 13.6569 14.2028C12.1566 15.703 10.1217 16.5459 8 16.5459C5.87827 16.5459 3.84344 15.703 2.34315 14.2028C0.842855 12.7025 0 10.6676 0 8.5459Z",
+                        fill: "#9CA3AF"
+                    }, void 0, false, {
+                        fileName: "[project]/src/utils/icons.js",
+                        lineNumber: 231,
+                        columnNumber: 1
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/src/utils/icons.js",
+                    lineNumber: 230,
+                    columnNumber: 1
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/utils/icons.js",
+                lineNumber: 229,
+                columnNumber: 1
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("clipPath", {
+                        id: "clip0_235_347",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                            width: "16",
+                            height: "16",
+                            fill: "white",
+                            transform: "translate(0 0.545898)"
+                        }, void 0, false, {
+                            fileName: "[project]/src/utils/icons.js",
+                            lineNumber: 236,
+                            columnNumber: 1
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/utils/icons.js",
+                        lineNumber: 235,
+                        columnNumber: 1
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("clipPath", {
+                        id: "clip1_235_347",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                            d: "M0 0.545898H16V16.5459H0V0.545898Z",
+                            fill: "white"
+                        }, void 0, false, {
+                            fileName: "[project]/src/utils/icons.js",
+                            lineNumber: 239,
+                            columnNumber: 1
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/utils/icons.js",
+                        lineNumber: 238,
+                        columnNumber: 1
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/utils/icons.js",
+                lineNumber: 234,
+                columnNumber: 1
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/utils/icons.js",
+        lineNumber: 228,
+        columnNumber: 5
+    }, this);
+};
+_c8 = CircleEmpty;
+var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8;
 __turbopack_context__.k.register(_c, "Bank");
 __turbopack_context__.k.register(_c1, "Coins");
 __turbopack_context__.k.register(_c2, "Insurance");
@@ -1926,6 +2005,7 @@ __turbopack_context__.k.register(_c4, "GraphUp");
 __turbopack_context__.k.register(_c5, "HandShake");
 __turbopack_context__.k.register(_c6, "TickMark");
 __turbopack_context__.k.register(_c7, "Processing");
+__turbopack_context__.k.register(_c8, "CircleEmpty");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
@@ -2818,6 +2898,7 @@ const HomePage = ()=>{
                                 columnNumber: 12
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "montserrat",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "text-center pt-[54px]",
                                     children: [
@@ -2839,117 +2920,264 @@ const HomePage = ()=>{
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex justify-center pb-[30px]",
+                                                className: "relative  pb-[30px]",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "flex flex-col  items-end",
+                                                        className: "flex justify-center gap-[100px]",
                                                         children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                children: "PHASE 1 - CURRENT"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
-                                                                lineNumber: 42,
-                                                                columnNumber: 21
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                                                children: "Founders Vault Launch"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
-                                                                lineNumber: 43,
-                                                                columnNumber: 21
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex flex-col pt-[15px]  items-end",
                                                                 children: [
-                                                                    "Initial presale for the first 250 founding members at $0.02 per token, ",
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                        className: "bg-[#EAB308] font-bold text-[14px] text-[#000] rounded-full py-[4px] px-[15px]",
+                                                                        children: "PHASE 1 - CURRENT"
+                                                                    }, void 0, false, {
                                                                         fileName: "[project]/src/components/Pages/Homepage.jsx",
-                                                                        lineNumber: 44,
-                                                                        columnNumber: 95
+                                                                        lineNumber: 45,
+                                                                        columnNumber: 21
                                                                     }, this),
-                                                                    " including membership benefits and CBF Bank accounts."
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                                        className: "font-bold text-[20px] pt-[6px]",
+                                                                        children: "Founders Vault Launch"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                        lineNumber: 46,
+                                                                        columnNumber: 21
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                        className: "text-[16px] text-[#FFFFFF] text-normal pt-[10px] text-right",
+                                                                        children: [
+                                                                            "Initial presale for the first 250 founding members at $0.02 per token, ",
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                                lineNumber: 47,
+                                                                                columnNumber: 167
+                                                                            }, this),
+                                                                            " including membership benefits and CBF Bank accounts."
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                        lineNumber: 47,
+                                                                        columnNumber: 21
+                                                                    }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/components/Pages/Homepage.jsx",
                                                                 lineNumber: 44,
-                                                                columnNumber: 21
+                                                                columnNumber: 17
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "relative max-w-[570px] w-[570px] h-[150px]  flex flex-col gap-[15px] p-[25px] bg-black/60 shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-xl border-[1px] border-[#EAB30833]",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex items-center gap-[10px]",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$icons$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TickMark"], {}, void 0, false, {
+                                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                                lineNumber: 52,
+                                                                                columnNumber: 25
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                children: "Launch presale website"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                                lineNumber: 53,
+                                                                                columnNumber: 25
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                        lineNumber: 51,
+                                                                        columnNumber: 21
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex items-center gap-[10px]",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$icons$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TickMark"], {}, void 0, false, {
+                                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                                lineNumber: 56,
+                                                                                columnNumber: 25
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                children: "Launch presale website"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                                lineNumber: 57,
+                                                                                columnNumber: 25
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                        lineNumber: 55,
+                                                                        columnNumber: 21
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex items-start gap-[1px] -translate-x-1",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$icons$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Processing"], {}, void 0, false, {
+                                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                                lineNumber: 60,
+                                                                                columnNumber: 25
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                children: "Secure initial $7.5M funding"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                                lineNumber: 61,
+                                                                                columnNumber: 25
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                        lineNumber: 59,
+                                                                        columnNumber: 21
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "w-[40px]  h-[40px] bg-black rounded-full border-[#EAB308] border-[4px] absolute top-[-20px] left-[50%] -translate-x-[50%]"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                        lineNumber: 63,
+                                                                        columnNumber: 21
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                lineNumber: 50,
+                                                                columnNumber: 2
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/Pages/Homepage.jsx",
-                                                        lineNumber: 41,
+                                                        lineNumber: 42,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "max-w-[570px] w-[570px]  flex flex-col gap-[30px] p-[25px] bg-black/60 rounded  border-[#EAB30833]",
+                                                        className: "flex justify-center pt-[50px] gap-[100px]",
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "flex items-center gap-[10px]",
+                                                                className: "relative max-w-[570px] w-[570px] h-[150px]  flex flex-col gap-[15px] p-[25px] bg-black/60 shadow-[0_5px_15px_rgba(0,0,0,0.35)] rounded-xl border-[1px] border-[#EAB30833]",
                                                                 children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$icons$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TickMark"], {}, void 0, false, {
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex items-center gap-[10px]",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$icons$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CircleEmpty"], {}, void 0, false, {
+                                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                                lineNumber: 77,
+                                                                                columnNumber: 9
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                children: "Launch Black Card program"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                                lineNumber: 78,
+                                                                                columnNumber: 9
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
                                                                         fileName: "[project]/src/components/Pages/Homepage.jsx",
-                                                                        lineNumber: 48,
-                                                                        columnNumber: 25
+                                                                        lineNumber: 76,
+                                                                        columnNumber: 5
                                                                     }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                        children: "Launch presale website"
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex items-center gap-[10px]",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$icons$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CircleEmpty"], {}, void 0, false, {
+                                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                                lineNumber: 81,
+                                                                                columnNumber: 9
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                children: "Increase token price to $0.05-$0.10"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                                lineNumber: 82,
+                                                                                columnNumber: 9
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                        lineNumber: 80,
+                                                                        columnNumber: 5
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex items-center gap-[10px]",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$icons$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CircleEmpty"], {}, void 0, false, {
+                                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                                lineNumber: 85,
+                                                                                columnNumber: 9
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                children: "Establish VIP benefits structure"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                                lineNumber: 86,
+                                                                                columnNumber: 9
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                        lineNumber: 84,
+                                                                        columnNumber: 5
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "w-[40px]  h-[40px] bg-black rounded-full border-[#EAB308] border-[4px] absolute top-[-20px] left-[50%] -translate-x-[50%]"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/Pages/Homepage.jsx",
-                                                                        lineNumber: 49,
-                                                                        columnNumber: 25
+                                                                        lineNumber: 88,
+                                                                        columnNumber: 5
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/components/Pages/Homepage.jsx",
-                                                                lineNumber: 47,
-                                                                columnNumber: 21
+                                                                lineNumber: 75,
+                                                                columnNumber: 1
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "flex items-center gap-[10px]",
+                                                                className: "flex flex-col pt-[15px]  items-start",
                                                                 children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$icons$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TickMark"], {}, void 0, false, {
-                                                                        fileName: "[project]/src/components/Pages/Homepage.jsx",
-                                                                        lineNumber: 52,
-                                                                        columnNumber: 25
-                                                                    }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                        children: "Launch presale website"
+                                                                        className: "bg-[#EAB308] font-bold text-[14px] text-[#000] rounded-full py-[4px] px-[15px]",
+                                                                        children: "PHASE 2 - JULY 4TH"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/Pages/Homepage.jsx",
-                                                                        lineNumber: 53,
-                                                                        columnNumber: 25
+                                                                        lineNumber: 95,
+                                                                        columnNumber: 5
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                                        className: "font-bold text-[20px] pt-[6px]",
+                                                                        children: "FFounders Black Card Launch"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                        lineNumber: 96,
+                                                                        columnNumber: 5
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                        className: "text-[16px] text-[#FFFFFF] text-normal pt-[10px] text-left",
+                                                                        children: "Exclusive release of 1,000 lifetime Black Card memberships with enhanced benefits and higher token entry point."
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                                        lineNumber: 97,
+                                                                        columnNumber: 5
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/components/Pages/Homepage.jsx",
-                                                                lineNumber: 51,
-                                                                columnNumber: 21
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "flex items-start gap-[5px]",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$icons$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Processing"], {}, void 0, false, {
-                                                                        fileName: "[project]/src/components/Pages/Homepage.jsx",
-                                                                        lineNumber: 56,
-                                                                        columnNumber: 25
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                        children: "Secure initial $7.5M funding"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/src/components/Pages/Homepage.jsx",
-                                                                        lineNumber: 57,
-                                                                        columnNumber: 25
-                                                                    }, this)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/src/components/Pages/Homepage.jsx",
-                                                                lineNumber: 55,
-                                                                columnNumber: 21
+                                                                lineNumber: 94,
+                                                                columnNumber: 1
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/Pages/Homepage.jsx",
-                                                        lineNumber: 46,
+                                                        lineNumber: 71,
                                                         columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "absolute z-[10] top-0 left-[50%] -translate-x-[50%] h-[740px] w-[4px] bg-[#EAB308] "
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/Pages/Homepage.jsx",
+                                                        lineNumber: 104,
+                                                        columnNumber: 13
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
