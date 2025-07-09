@@ -1,7 +1,16 @@
+import { useEthPrice } from "../../hooks/hooks";
+import { useUsdtPrice } from "../../hooks/hooks";
 import { useState, useEffect } from "react";
 
 const PopupInvest = () => {
   const [currentAmount, setCurrentAmount] = useState(1);
+  const [selectedCurrency, setSelectedCurrency] = useState('ETH');
+  const [payAmount, setPayAmount] = useState('');
+  const [pietyAmount, setPietyAmount] = useState('');
+  
+  const { ethPrice } = useEthPrice();
+  const { usdtPrice } = useUsdtPrice();
+  
   const [timeLeft, setTimeLeft] = useState({
     days: 90,
     hours: 0,
@@ -9,7 +18,42 @@ const PopupInvest = () => {
     seconds: 0
   });
 
+  const pietyPrice = 0.25; // $PTY = $0.25
+
+  // Calculate piety amount based on selected currency and pay amount
   useEffect(() => {
+    if (payAmount && !isNaN(payAmount) && payAmount > 0) {
+      let usdValue = 0;
+      
+      if (selectedCurrency === 'ETH') {
+        usdValue = parseFloat(payAmount) * ethPrice;
+      } else if (selectedCurrency === 'USDT') {
+        usdValue = parseFloat(payAmount) * usdtPrice;
+      }
+      
+      const pietyTokens = usdValue / pietyPrice;
+      setPietyAmount(pietyTokens.toFixed(4));
+    } else {
+      setPietyAmount('');
+    }
+  }, [payAmount, selectedCurrency, ethPrice, usdtPrice, pietyPrice]);
+
+  // Handle currency selection
+  const handleCurrencySelect = (currency) => {
+    setSelectedCurrency(currency);
+    setPayAmount(''); // Clear input when switching currency
+    setPietyAmount('');
+  };
+
+  // Handle pay amount input change
+  const handlePayAmountChange = (e) => {
+    setPayAmount(e.target.value);
+  };
+
+  useEffect(() => {
+    console.log(ethPrice, "this is eth price");
+    console.log(usdtPrice, "this is usdt price");
+    
     // Set target date - 90 days from now
     const targetDate = new Date();
     targetDate.setDate(targetDate.getDate() + 90);
@@ -33,7 +77,7 @@ const PopupInvest = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [ethPrice, usdtPrice]);
 
   const formatTime = (time) => {
     return time.toString().padStart(2, '0');
@@ -169,21 +213,31 @@ const PopupInvest = () => {
         {/* Currency Selection Buttons */}
         <div className="flex justify-evenly pt-[25px] 
                         max-[1200px]:pt-[20px] max-[700px]:pt-[18px] max-[500px]:pt-[15px] max-[500px]:flex-col max-[500px]:gap-[10px]">
-          <button className="flex bg-[#0d1112] h-[50px] items-center border-[#F9FF38] border-[1px] w-[177px] rounded-xl justify-center gap-[7px] 
-                             hover:text-[#f9ff38] hover:bg-[linear-gradient(to_right,rgba(249,255,56,0.1)_0%,rgba(21,50,69,0.5)_100%)] 
-                             max-[1200px]:w-[160px] max-[1200px]:h-[45px]
-                             max-[700px]:w-[140px] max-[700px]:h-[42px]
-                             max-[500px]:w-full max-[500px]:h-[40px]">
+          <button 
+            onClick={() => handleCurrencySelect('ETH')}
+            className={`flex bg-[#0d1112] h-[50px] items-center border-[#F9FF38] border-[1px] w-[177px] rounded-xl justify-center gap-[7px] 
+                       max-[1200px]:w-[160px] max-[1200px]:h-[45px]
+                       max-[700px]:w-[140px] max-[700px]:h-[42px]
+                       max-[500px]:w-full max-[500px]:h-[40px]
+                       ${selectedCurrency === 'ETH' 
+                         ? 'text-[#f9ff38] bg-[linear-gradient(to_right,rgba(249,255,56,0.1)_0%,rgba(21,50,69,0.5)_100%)]' 
+                         : 'hover:text-[#f9ff38] hover:bg-[linear-gradient(to_right,rgba(249,255,56,0.1)_0%,rgba(21,50,69,0.5)_100%)]'
+                       }`}>
             <div className="w-[24px] h-[24px] bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold max-[500px]:w-[20px] max-[500px]:h-[20px]">
               <img src="/eth.png" alt="" />
             </div>
             <span className="max-[1200px]:text-[15px] max-[700px]:text-[14px] max-[500px]:text-[13px]">ETH</span>
           </button>
-          <button className="flex bg-[#0d1112] h-[50px] items-center border-[#F9FF38] border-[1px] w-[177px] rounded-xl justify-center gap-[7px] 
-                             hover:text-[#f9ff38] hover:bg-[linear-gradient(to_right,rgba(249,255,56,0.1)_0%,rgba(21,50,69,0.5)_100%)] 
-                             max-[1200px]:w-[160px] max-[1200px]:h-[45px]
-                             max-[700px]:w-[140px] max-[700px]:h-[42px]
-                             max-[500px]:w-full max-[500px]:h-[40px]">
+          <button 
+            onClick={() => handleCurrencySelect('USDT')}
+            className={`flex bg-[#0d1112] h-[50px] items-center border-[#F9FF38] border-[1px] w-[177px] rounded-xl justify-center gap-[7px] 
+                       max-[1200px]:w-[160px] max-[1200px]:h-[45px]
+                       max-[700px]:w-[140px] max-[700px]:h-[42px]
+                       max-[500px]:w-full max-[500px]:h-[40px]
+                       ${selectedCurrency === 'USDT' 
+                         ? 'text-[#f9ff38] bg-[linear-gradient(to_right,rgba(249,255,56,0.1)_0%,rgba(21,50,69,0.5)_100%)]' 
+                         : 'hover:text-[#f9ff38] hover:bg-[linear-gradient(to_right,rgba(249,255,56,0.1)_0%,rgba(21,50,69,0.5)_100%)]'
+                       }`}>
             <div className="w-[24px] h-[24px] bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold max-[500px]:w-[20px] max-[500px]:h-[20px]">
               <img src="/usdt.png" alt="" />
             </div>
@@ -196,13 +250,17 @@ const PopupInvest = () => {
                         max-[1200px]:pt-[20px] max-[700px]:pt-[18px] max-[700px]:gap-[10px] max-[500px]:pt-[15px] max-[500px]:gap-[8px] max-[500px]:flex-col">
           <div className="w-full">
             <h3 className="text-start pb-[7px] text-[#FACC15] 
-                          max-[1200px]:text-[15px] max-[700px]:text-[14px] max-[500px]:text-[13px] max-[500px]:pb-[5px]">ETH you pay</h3>
+                          max-[1200px]:text-[15px] max-[700px]:text-[14px] max-[500px]:text-[13px] max-[500px]:pb-[5px]">
+              {selectedCurrency} you pay
+            </h3>
             <div className="relative rounded-xl h-[49px] border-[1px] border-[#11181e] w-full 
                            max-[1200px]:h-[45px] max-[700px]:h-[42px] max-[500px]:h-[40px]">
               <input
                 type="number"
                 inputMode="numeric"
                 pattern="[0-9]*"
+                value={payAmount}
+                onChange={handlePayAmountChange}
                 className="w-[100%] h-full outline-none p-[10px] bg-transparent text-white 
                           [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none 
                           [&::-webkit-outer-spin-button]:m-0 [&::-webkit-inner-spin-button]:m-0 
@@ -210,7 +268,7 @@ const PopupInvest = () => {
               />
               <div className="absolute top-[50%] right-[10px] transform -translate-y-1/2 w-[30px] h-[30px] bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold 
                              max-[1200px]:w-[26px] max-[1200px]:h-[26px] max-[700px]:w-[24px] max-[700px]:h-[24px] max-[500px]:w-[22px] max-[500px]:h-[22px] max-[500px]:right-[8px]">
-                <img src="/eth.png" alt="" />
+                <img src={selectedCurrency === 'ETH' ? "/eth.png" : "/usdt.png"} alt="" />
               </div>
             </div>
           </div>
@@ -225,6 +283,8 @@ const PopupInvest = () => {
                 type="number"
                 inputMode="numeric"
                 pattern="[0-9]*"
+                value={pietyAmount}
+                readOnly
                 className="w-[100%] h-full outline-none p-[10px] bg-transparent text-white 
                           [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none 
                           [&::-webkit-outer-spin-button]:m-0 [&::-webkit-inner-spin-button]:m-0 

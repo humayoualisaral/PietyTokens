@@ -768,6 +768,232 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
+"[project]/src/hooks/hooks.js [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>__TURBOPACK__default__export__),
+    "useEthPrice": (()=>useEthPrice),
+    "useUsdtPrice": (()=>useUsdtPrice)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature();
+'use client';
+;
+const useEthPrice = (options = {})=>{
+    _s();
+    const { autoRefresh = true, refreshInterval = 30000, onError = null } = options;
+    const [ethPrice, setEthPrice] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    // Multiple API endpoints to try
+    const apiEndpoints = [
+        {
+            name: 'Coinbase',
+            url: 'https://api.coinbase.com/v2/exchange-rates?currency=ETH',
+            parser: (data)=>parseFloat(data.data.rates.USD)
+        },
+        {
+            name: 'CoinGecko',
+            url: 'https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd',
+            parser: (data)=>data.ethereum.usd
+        },
+        {
+            name: 'CryptoCompare',
+            url: 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD',
+            parser: (data)=>data.USD
+        }
+    ];
+    const fetchEthPrice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "useEthPrice.useCallback[fetchEthPrice]": async ()=>{
+            setLoading(true);
+            setError(null);
+            for (const endpoint of apiEndpoints){
+                try {
+                    console.log(`Trying ${endpoint.name} API...`);
+                    const response = await fetch(endpoint.url, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    console.log(`${endpoint.name} response:`, data);
+                    const price = endpoint.parser(data);
+                    if (price && price > 0) {
+                        console.log(`ETH Price from ${endpoint.name}:`, price);
+                        setEthPrice(price);
+                        setLoading(false);
+                        return; // Success, exit the loop
+                    }
+                } catch (err) {
+                    console.error(`${endpoint.name} failed:`, err);
+                    continue; // Try next endpoint
+                }
+            }
+            // If all APIs fail, set error and use fallback
+            const errorMessage = 'All price APIs failed';
+            setError(errorMessage);
+            setEthPrice(3000); // Fallback price for development
+            if (onError) {
+                onError(errorMessage);
+            }
+            setLoading(false);
+        }
+    }["useEthPrice.useCallback[fetchEthPrice]"], [
+        onError
+    ]);
+    const refreshPrice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "useEthPrice.useCallback[refreshPrice]": ()=>{
+            fetchEthPrice();
+        }
+    }["useEthPrice.useCallback[refreshPrice]"], [
+        fetchEthPrice
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "useEthPrice.useEffect": ()=>{
+            fetchEthPrice();
+            let interval;
+            if (autoRefresh) {
+                interval = setInterval(fetchEthPrice, refreshInterval);
+            }
+            return ({
+                "useEthPrice.useEffect": ()=>{
+                    if (interval) {
+                        clearInterval(interval);
+                    }
+                }
+            })["useEthPrice.useEffect"];
+        }
+    }["useEthPrice.useEffect"], [
+        fetchEthPrice,
+        autoRefresh,
+        refreshInterval
+    ]);
+    return {
+        ethPrice,
+        loading,
+        error,
+        refreshPrice
+    };
+};
+_s(useEthPrice, "rHf0GOsEpqVxTREAw+VLX0CAvng=");
+const __TURBOPACK__default__export__ = useEthPrice;
+const useUsdtPrice = (options = {})=>{
+    _s1();
+    const { autoRefresh = true, refreshInterval = 30000, onError = null } = options;
+    const [usdtPrice, setUsdtPrice] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(1.0);
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    // Multiple API endpoints to try for USDT price
+    const apiEndpoints = [
+        {
+            name: 'Coinbase',
+            url: 'https://api.coinbase.com/v2/exchange-rates?currency=USDT',
+            parser: (data)=>parseFloat(data.data.rates.USD)
+        },
+        {
+            name: 'CoinGecko',
+            url: 'https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd',
+            parser: (data)=>data.tether.usd
+        },
+        {
+            name: 'CryptoCompare',
+            url: 'https://min-api.cryptocompare.com/data/price?fsym=USDT&tsyms=USD',
+            parser: (data)=>data.USD
+        },
+        {
+            name: 'Binance',
+            url: 'https://api.binance.com/api/v3/ticker/price?symbol=USDTUSD',
+            parser: (data)=>parseFloat(data.price)
+        }
+    ];
+    const fetchUsdtPrice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "useUsdtPrice.useCallback[fetchUsdtPrice]": async ()=>{
+            setLoading(true);
+            setError(null);
+            for (const endpoint of apiEndpoints){
+                try {
+                    console.log(`Trying ${endpoint.name} API for USDT...`);
+                    const response = await fetch(endpoint.url, {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    console.log(`${endpoint.name} USDT response:`, data);
+                    const price = endpoint.parser(data);
+                    if (price && price > 0) {
+                        console.log(`USDT Price from ${endpoint.name}:`, price);
+                        setUsdtPrice(price);
+                        setLoading(false);
+                        return; // Success, exit the loop
+                    }
+                } catch (err) {
+                    console.error(`${endpoint.name} failed for USDT:`, err);
+                    continue; // Try next endpoint
+                }
+            }
+            // If all APIs fail, set error and use fallback
+            const errorMessage = 'All USDT price APIs failed';
+            setError(errorMessage);
+            setUsdtPrice(1.0); // Fallback price for USDT (should be close to $1)
+            if (onError) {
+                onError(errorMessage);
+            }
+            setLoading(false);
+        }
+    }["useUsdtPrice.useCallback[fetchUsdtPrice]"], [
+        onError
+    ]);
+    const refreshPrice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "useUsdtPrice.useCallback[refreshPrice]": ()=>{
+            fetchUsdtPrice();
+        }
+    }["useUsdtPrice.useCallback[refreshPrice]"], [
+        fetchUsdtPrice
+    ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "useUsdtPrice.useEffect": ()=>{
+            fetchUsdtPrice();
+            let interval;
+            if (autoRefresh) {
+                interval = setInterval(fetchUsdtPrice, refreshInterval);
+            }
+            return ({
+                "useUsdtPrice.useEffect": ()=>{
+                    if (interval) {
+                        clearInterval(interval);
+                    }
+                }
+            })["useUsdtPrice.useEffect"];
+        }
+    }["useUsdtPrice.useEffect"], [
+        fetchUsdtPrice,
+        autoRefresh,
+        refreshInterval
+    ]);
+    return {
+        usdtPrice,
+        loading,
+        error,
+        refreshPrice
+    };
+};
+_s1(useUsdtPrice, "/AeAkMuxzxqZF7ljeUDB8EQa7s0=");
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
 "[project]/src/components/Common/PopupInvest.jsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -777,28 +1003,65 @@ __turbopack_context__.s({
     "default": (()=>__TURBOPACK__default__export__)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-(()=>{
-    const e = new Error("Cannot find module '@/utils/hooks'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$hooks$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/hooks.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 ;
 ;
+;
 const PopupInvest = ()=>{
     _s();
     const [currentAmount, setCurrentAmount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(1);
+    const [selectedCurrency, setSelectedCurrency] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('ETH');
+    const [payAmount, setPayAmount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
+    const [pietyAmount, setPietyAmount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
+    const { ethPrice } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$hooks$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEthPrice"])();
+    const { usdtPrice } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$hooks$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useUsdtPrice"])();
     const [timeLeft, setTimeLeft] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
         days: 90,
         hours: 0,
         minutes: 0,
         seconds: 0
     });
+    const pietyPrice = 0.25; // $PTY = $0.25
+    // Calculate piety amount based on selected currency and pay amount
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "PopupInvest.useEffect": ()=>{
-            console.log(useEthPrice, "this is price");
+            if (payAmount && !isNaN(payAmount) && payAmount > 0) {
+                let usdValue = 0;
+                if (selectedCurrency === 'ETH') {
+                    usdValue = parseFloat(payAmount) * ethPrice;
+                } else if (selectedCurrency === 'USDT') {
+                    usdValue = parseFloat(payAmount) * usdtPrice;
+                }
+                const pietyTokens = usdValue / pietyPrice;
+                setPietyAmount(pietyTokens.toFixed(4));
+            } else {
+                setPietyAmount('');
+            }
+        }
+    }["PopupInvest.useEffect"], [
+        payAmount,
+        selectedCurrency,
+        ethPrice,
+        usdtPrice,
+        pietyPrice
+    ]);
+    // Handle currency selection
+    const handleCurrencySelect = (currency)=>{
+        setSelectedCurrency(currency);
+        setPayAmount(''); // Clear input when switching currency
+        setPietyAmount('');
+    };
+    // Handle pay amount input change
+    const handlePayAmountChange = (e)=>{
+        setPayAmount(e.target.value);
+    };
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "PopupInvest.useEffect": ()=>{
+            console.log(ethPrice, "this is eth price");
+            console.log(usdtPrice, "this is usdt price");
             // Set target date - 90 days from now
             const targetDate = new Date();
             targetDate.setDate(targetDate.getDate() + 90);
@@ -833,7 +1096,10 @@ const PopupInvest = ()=>{
                 "PopupInvest.useEffect": ()=>clearInterval(timer)
             })["PopupInvest.useEffect"];
         }
-    }["PopupInvest.useEffect"], []);
+    }["PopupInvest.useEffect"], [
+        ethPrice,
+        usdtPrice
+    ]);
     const formatTime = (time)=>{
         return time.toString().padStart(2, '0');
     };
@@ -858,14 +1124,14 @@ const PopupInvest = ()=>{
                                     children: "Days"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 72,
+                                    lineNumber: 114,
                                     columnNumber: 13
                                 }, this),
                                 " "
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                            lineNumber: 70,
+                            lineNumber: 112,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -878,13 +1144,13 @@ const PopupInvest = ()=>{
                                     children: "hours"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 83,
+                                    lineNumber: 125,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                            lineNumber: 81,
+                            lineNumber: 123,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -897,13 +1163,13 @@ const PopupInvest = ()=>{
                                     children: "minutes"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 94,
+                                    lineNumber: 136,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                            lineNumber: 92,
+                            lineNumber: 134,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -916,19 +1182,19 @@ const PopupInvest = ()=>{
                                     children: "seconds"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 105,
+                                    lineNumber: 147,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                            lineNumber: 103,
+                            lineNumber: 145,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                    lineNumber: 64,
+                    lineNumber: 106,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -943,13 +1209,13 @@ const PopupInvest = ()=>{
                                     children: " Before Price Rises."
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 125,
+                                    lineNumber: 167,
                                     columnNumber: 21
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                            lineNumber: 119,
+                            lineNumber: 161,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -965,12 +1231,12 @@ const PopupInvest = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                        lineNumber: 132,
+                                        lineNumber: 174,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 129,
+                                    lineNumber: 171,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -983,32 +1249,32 @@ const PopupInvest = ()=>{
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                            lineNumber: 145,
+                                            lineNumber: 187,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             children: "Goal: $31M"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                            lineNumber: 146,
+                                            lineNumber: 188,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 143,
+                                    lineNumber: 185,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                            lineNumber: 128,
+                            lineNumber: 170,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                    lineNumber: 117,
+                    lineNumber: 159,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1018,20 +1284,20 @@ const PopupInvest = ()=>{
                             children: "TOTAL RAISED : $0.00/$31,000,000"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                            lineNumber: 158,
+                            lineNumber: 200,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             children: "TOKEN SOLD : 0/3.100.000.000"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                            lineNumber: 159,
+                            lineNumber: 201,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                    lineNumber: 152,
+                    lineNumber: 194,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1042,7 +1308,7 @@ const PopupInvest = ()=>{
                             children: "1 $PTY = $0.25"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                            lineNumber: 167,
+                            lineNumber: 209,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1050,20 +1316,25 @@ const PopupInvest = ()=>{
                             children: "Next Price: $0.50"
                         }, void 0, false, {
                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                            lineNumber: 168,
+                            lineNumber: 210,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                    lineNumber: 163,
+                    lineNumber: 205,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "flex justify-evenly pt-[25px]  max-[1200px]:pt-[20px] max-[700px]:pt-[18px] max-[500px]:pt-[15px] max-[500px]:flex-col max-[500px]:gap-[10px]",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                            className: "flex bg-[#0d1112] h-[50px] items-center border-[#F9FF38] border-[1px] w-[177px] rounded-xl justify-center gap-[7px]  hover:text-[#f9ff38] hover:bg-[linear-gradient(to_right,rgba(249,255,56,0.1)_0%,rgba(21,50,69,0.5)_100%)]  max-[1200px]:w-[160px] max-[1200px]:h-[45px] max-[700px]:w-[140px] max-[700px]:h-[42px] max-[500px]:w-full max-[500px]:h-[40px]",
+                            onClick: ()=>handleCurrencySelect('ETH'),
+                            className: `flex bg-[#0d1112] h-[50px] items-center border-[#F9FF38] border-[1px] w-[177px] rounded-xl justify-center gap-[7px] 
+                       max-[1200px]:w-[160px] max-[1200px]:h-[45px]
+                       max-[700px]:w-[140px] max-[700px]:h-[42px]
+                       max-[500px]:w-full max-[500px]:h-[40px]
+                       ${selectedCurrency === 'ETH' ? 'text-[#f9ff38] bg-[linear-gradient(to_right,rgba(249,255,56,0.1)_0%,rgba(21,50,69,0.5)_100%)]' : 'hover:text-[#f9ff38] hover:bg-[linear-gradient(to_right,rgba(249,255,56,0.1)_0%,rgba(21,50,69,0.5)_100%)]'}`,
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "w-[24px] h-[24px] bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold max-[500px]:w-[20px] max-[500px]:h-[20px]",
@@ -1072,12 +1343,12 @@ const PopupInvest = ()=>{
                                         alt: ""
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                        lineNumber: 180,
+                                        lineNumber: 227,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 179,
+                                    lineNumber: 226,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1085,17 +1356,22 @@ const PopupInvest = ()=>{
                                     children: "ETH"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 182,
+                                    lineNumber: 229,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                            lineNumber: 174,
+                            lineNumber: 216,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                            className: "flex bg-[#0d1112] h-[50px] items-center border-[#F9FF38] border-[1px] w-[177px] rounded-xl justify-center gap-[7px]  hover:text-[#f9ff38] hover:bg-[linear-gradient(to_right,rgba(249,255,56,0.1)_0%,rgba(21,50,69,0.5)_100%)]  max-[1200px]:w-[160px] max-[1200px]:h-[45px] max-[700px]:w-[140px] max-[700px]:h-[42px] max-[500px]:w-full max-[500px]:h-[40px]",
+                            onClick: ()=>handleCurrencySelect('USDT'),
+                            className: `flex bg-[#0d1112] h-[50px] items-center border-[#F9FF38] border-[1px] w-[177px] rounded-xl justify-center gap-[7px] 
+                       max-[1200px]:w-[160px] max-[1200px]:h-[45px]
+                       max-[700px]:w-[140px] max-[700px]:h-[42px]
+                       max-[500px]:w-full max-[500px]:h-[40px]
+                       ${selectedCurrency === 'USDT' ? 'text-[#f9ff38] bg-[linear-gradient(to_right,rgba(249,255,56,0.1)_0%,rgba(21,50,69,0.5)_100%)]' : 'hover:text-[#f9ff38] hover:bg-[linear-gradient(to_right,rgba(249,255,56,0.1)_0%,rgba(21,50,69,0.5)_100%)]'}`,
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "w-[24px] h-[24px] bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold max-[500px]:w-[20px] max-[500px]:h-[20px]",
@@ -1104,12 +1380,12 @@ const PopupInvest = ()=>{
                                         alt: ""
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                        lineNumber: 190,
+                                        lineNumber: 242,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 189,
+                                    lineNumber: 241,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1117,19 +1393,19 @@ const PopupInvest = ()=>{
                                     children: "USDT"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 192,
+                                    lineNumber: 244,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                            lineNumber: 184,
+                            lineNumber: 231,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                    lineNumber: 172,
+                    lineNumber: 214,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1140,10 +1416,13 @@ const PopupInvest = ()=>{
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                     className: "text-start pb-[7px] text-[#FACC15]  max-[1200px]:text-[15px] max-[700px]:text-[14px] max-[500px]:text-[13px] max-[500px]:pb-[5px]",
-                                    children: "ETH you pay"
-                                }, void 0, false, {
+                                    children: [
+                                        selectedCurrency,
+                                        " you pay"
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 200,
+                                    lineNumber: 252,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1153,37 +1432,39 @@ const PopupInvest = ()=>{
                                             type: "number",
                                             inputMode: "numeric",
                                             pattern: "[0-9]*",
+                                            value: payAmount,
+                                            onChange: handlePayAmountChange,
                                             className: "w-[100%] h-full outline-none p-[10px] bg-transparent text-white  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  [&::-webkit-outer-spin-button]:m-0 [&::-webkit-inner-spin-button]:m-0  max-[1200px]:text-[15px] max-[700px]:text-[14px] max-[700px]:p-[8px] max-[500px]:text-[13px] max-[500px]:p-[6px]"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                            lineNumber: 204,
+                                            lineNumber: 258,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "absolute top-[50%] right-[10px] transform -translate-y-1/2 w-[30px] h-[30px] bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold  max-[1200px]:w-[26px] max-[1200px]:h-[26px] max-[700px]:w-[24px] max-[700px]:h-[24px] max-[500px]:w-[22px] max-[500px]:h-[22px] max-[500px]:right-[8px]",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                src: "/eth.png",
+                                                src: selectedCurrency === 'ETH' ? "/eth.png" : "/usdt.png",
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                                lineNumber: 215,
+                                                lineNumber: 271,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                            lineNumber: 213,
+                                            lineNumber: 269,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 202,
+                                    lineNumber: 256,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                            lineNumber: 199,
+                            lineNumber: 251,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1194,7 +1475,7 @@ const PopupInvest = ()=>{
                                     children: "$PTY you receive"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 220,
+                                    lineNumber: 276,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1204,10 +1485,12 @@ const PopupInvest = ()=>{
                                             type: "number",
                                             inputMode: "numeric",
                                             pattern: "[0-9]*",
+                                            value: pietyAmount,
+                                            readOnly: true,
                                             className: "w-[100%] h-full outline-none p-[10px] bg-transparent text-white  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none  [&::-webkit-outer-spin-button]:m-0 [&::-webkit-inner-spin-button]:m-0  max-[1200px]:text-[15px] max-[700px]:text-[14px] max-[700px]:p-[8px] max-[500px]:text-[13px] max-[500px]:p-[6px]"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                            lineNumber: 226,
+                                            lineNumber: 282,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1217,30 +1500,30 @@ const PopupInvest = ()=>{
                                                 alt: ""
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                                lineNumber: 237,
+                                                lineNumber: 295,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                            lineNumber: 235,
+                                            lineNumber: 293,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                                    lineNumber: 224,
+                                    lineNumber: 280,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                            lineNumber: 219,
+                            lineNumber: 275,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                    lineNumber: 197,
+                    lineNumber: 249,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1248,22 +1531,27 @@ const PopupInvest = ()=>{
                     children: "Connect wallet & Pay"
                 }, void 0, false, {
                     fileName: "[project]/src/components/Common/PopupInvest.jsx",
-                    lineNumber: 244,
+                    lineNumber: 302,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/Common/PopupInvest.jsx",
-            lineNumber: 51,
+            lineNumber: 93,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/Common/PopupInvest.jsx",
-        lineNumber: 45,
+        lineNumber: 87,
         columnNumber: 5
     }, this);
 };
-_s(PopupInvest, "sbxBiKVs1GHMow4LMdOpbSabLeo=");
+_s(PopupInvest, "ggrw2j2/XT5/4FI1P1TmxvM08P8=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$hooks$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEthPrice"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$hooks$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useUsdtPrice"]
+    ];
+});
 _c = PopupInvest;
 const __TURBOPACK__default__export__ = PopupInvest;
 var _c;
@@ -6793,4 +7081,4 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 }}),
 }]);
 
-//# sourceMappingURL=src_203b02f4._.js.map
+//# sourceMappingURL=src_610c2096._.js.map

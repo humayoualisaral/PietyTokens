@@ -768,6 +768,96 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
 }}),
+"[project]/src/utils/hooks.js [app-client] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>__TURBOPACK__default__export__),
+    "useEthPrice": (()=>useEthPrice)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var _s = __turbopack_context__.k.signature();
+'use client'; // Add this for Next.js 13+ with app router
+;
+const useEthPrice = (options = {})=>{
+    _s();
+    const { autoRefresh = true, refreshInterval = 30000, onError = null } = options;
+    const [ethPrice, setEthPrice] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    // Fetch ETH price from CoinGecko API
+    const fetchEthPrice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "useEthPrice.useCallback[fetchEthPrice]": async ()=>{
+            try {
+                setLoading(true);
+                setError(null);
+                const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                if (!data.ethereum || !data.ethereum.usd) {
+                    throw new Error('Invalid response format');
+                }
+                setEthPrice(data.ethereum.usd);
+            } catch (err) {
+                const errorMessage = err.message || 'Failed to fetch ETH price';
+                setError(errorMessage);
+                if (onError) {
+                    onError(errorMessage);
+                }
+                console.error('Error fetching ETH price:', err);
+            } finally{
+                setLoading(false);
+            }
+        }
+    }["useEthPrice.useCallback[fetchEthPrice]"], [
+        onError
+    ]);
+    // Manual refresh function
+    const refreshPrice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "useEthPrice.useCallback[refreshPrice]": ()=>{
+            fetchEthPrice();
+        }
+    }["useEthPrice.useCallback[refreshPrice]"], [
+        fetchEthPrice
+    ]);
+    // Set up initial fetch and auto-refresh
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "useEthPrice.useEffect": ()=>{
+            fetchEthPrice();
+            let interval;
+            if (autoRefresh) {
+                interval = setInterval(fetchEthPrice, refreshInterval);
+            }
+            return ({
+                "useEthPrice.useEffect": ()=>{
+                    if (interval) {
+                        clearInterval(interval);
+                    }
+                }
+            })["useEthPrice.useEffect"];
+        }
+    }["useEthPrice.useEffect"], [
+        fetchEthPrice,
+        autoRefresh,
+        refreshInterval
+    ]);
+    return {
+        ethPrice,
+        loading,
+        error,
+        refreshPrice
+    };
+};
+_s(useEthPrice, "rHf0GOsEpqVxTREAw+VLX0CAvng=");
+const __TURBOPACK__default__export__ = useEthPrice;
+if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
+    __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
+}
+}}),
 "[project]/src/components/Common/PopupInvest.jsx [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -777,11 +867,7 @@ __turbopack_context__.s({
     "default": (()=>__TURBOPACK__default__export__)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-(()=>{
-    const e = new Error("Cannot find module '@/utils/hooks'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$hooks$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/hooks.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
@@ -789,6 +875,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 const PopupInvest = ()=>{
     _s();
+    var _s1 = __turbopack_context__.k.signature();
     const [currentAmount, setCurrentAmount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(1);
     const [timeLeft, setTimeLeft] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
         days: 90,
@@ -796,9 +883,10 @@ const PopupInvest = ()=>{
         minutes: 0,
         seconds: 0
     });
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])(_s1({
         "PopupInvest.useEffect": ()=>{
-            console.log(useEthPrice, "this is price");
+            _s1();
+            console.log((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$hooks$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEthPrice"])(), 'this is price');
             // Set target date - 90 days from now
             const targetDate = new Date();
             targetDate.setDate(targetDate.getDate() + 90);
@@ -833,7 +921,13 @@ const PopupInvest = ()=>{
                 "PopupInvest.useEffect": ()=>clearInterval(timer)
             })["PopupInvest.useEffect"];
         }
-    }["PopupInvest.useEffect"], []);
+    }["PopupInvest.useEffect"], "4tHUfTHJ+8kMybgG7JiJZQ7CjpQ=", false, {
+        "PopupInvest.useEffect": function() {
+            return [
+                __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$hooks$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEthPrice"]
+            ];
+        }
+    }["PopupInvest.useEffect"]), []);
     const formatTime = (time)=>{
         return time.toString().padStart(2, '0');
     };
@@ -6793,4 +6887,4 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 }}),
 }]);
 
-//# sourceMappingURL=src_203b02f4._.js.map
+//# sourceMappingURL=src_b26ac692._.js.map
